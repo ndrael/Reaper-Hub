@@ -1,7 +1,5 @@
 local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
-local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
-
 WindUI:AddTheme({
     Name = "Dark Blood Gradient",
     
@@ -63,37 +61,37 @@ Window:EditOpenButton({
     Draggable = true,
 })
 
-local Tab = Window:TabMain({
+local MainTab = Window:Tab({
     Title = "Main",
     Icon = "house", -- optional
     Locked = false,
 })
 
-local Tab = Window:TabEsp({
+local EspTab = Window:Tab({
     Title = "Esp",
     Icon = "eye", -- optional
     Locked = false,
 })
 
-local Tab = Window:TabCombats({
-    Title = "Combats",
+local CombatTab = Window:Tab({
+    Title = "Combat",
     Icon = "swords", -- optional
     Locked = false,
 })
 
-local Tab = Window:TabEvents({
-    Title = "Events",
+local EventTab = Window:Tab({
+    Title = "Event",
     Icon = "gift", -- optional
     Locked = false,
 })
 
-local Tab = Window:TabMisc({
+local MiscTab = Window:Tab({
     Title = "Misc",
     Icon = "sliders-horizontal", -- optional
     Locked = false,
 })
 
-local Tab = Window:TabSettings({
+local SettingsTab = Window:Tab({
     Title = "Settings",
     Icon = "settings", -- optional
     Locked = false,
