@@ -123,6 +123,12 @@ local EspTab = Window:Tab({
     Locked = false,
 })
 
+local AutoTab = Window:Tab({
+    Title = "Auto",
+    Icon = "infinity", -- optional
+    Locked = false,
+})
+
 local CombatTab = Window:Tab({
     Title = "Combat",
     Icon = "swords", -- optional
