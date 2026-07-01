@@ -107,6 +107,43 @@ local MainTab = Window:Tab({
     Locked = false,
 })
 
+local PlayersService = game:GetService("Players")
+local StatsService = game:GetService("Stats")
+
+local function GetServerPlayerCount()
+    return #PlayersService:GetPlayers()
+end
+
+local function GetGamePlayingCount()
+    local success, result = pcall(function()
+        return StatsService.PlacesLoaded or game.PlaceId and 0
+    end)
+    local ok, data = pcall(function()
+        return game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
+    end)
+    if ok and data and data.PlayingCount then
+        return data.PlayingCount
+    end
+    return "N/A"
+end
+
+local BannerParagraph = MainTab:Paragraph({
+    Title = "Ryzenth | Violence District",
+    Desc = "Made by ndrael\nPlaying now: " .. tostring(GetGamePlayingCount()) .. "\nPlayers in this server: " .. tostring(GetServerPlayerCount()),
+    Color = "Blue",
+    Image = "rbxassetid://110263629662540",
+    ImageSize = 60,
+    Thumbnail = "",
+    ThumbnailSize = 80,
+    Locked = false,
+})
+
+task.spawn(function()
+    while task.wait(5) do
+        BannerParagraph:SetDesc("Made by ndrael\nPlaying now: " .. tostring(GetGamePlayingCount()) .. "\nPlayers in this server: " .. tostring(GetServerPlayerCount()))
+    end
+end)
+
 local EspTab = Window:Tab({
     Title = "Esp",
     Icon = "eye",
