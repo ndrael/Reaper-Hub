@@ -115,7 +115,7 @@ end
 
 local function GetGamePlayingCount()
     local ok, data = pcall(function()
-        return game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
+        return game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId, Enum.InfoType.Asset)
     end)
     if ok and data and data.PlayingCount then
         return data.PlayingCount
@@ -128,7 +128,7 @@ local BannerParagraph = MainTab:Paragraph({
     Desc = "Made by ndrael\n\nPlayers currently playing this game: " .. tostring(GetGamePlayingCount()) .. "\nPlayers in this server: " .. tostring(GetServerPlayerCount()),
     Color = "Grey",
     Image = "rbxassetid://110263629662540",
-    ImageSize = 400,
+    ImageSize = 220,
     Thumbnail = "",
     ThumbnailSize = 80,
     Locked = false,
