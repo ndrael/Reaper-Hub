@@ -63,31 +63,37 @@ Window:EditOpenButton({
     Draggable = true,
 })
 
-local Tab = Window:Tab({
+local Tab = Window:TabMain({
     Title = "Main",
     Icon = "house", -- optional
     Locked = false,
 })
 
-local Tab = Window:Tab({
+local Tab = Window:TabEsp({
     Title = "Esp",
     Icon = "eye", -- optional
     Locked = false,
 })
 
-local Tab = Window:Tab({
-    Title = "Combat",
+local Tab = Window:TabCombats({
+    Title = "Combats",
     Icon = "swords", -- optional
     Locked = false,
 })
 
-local Tab = Window:Tab({
+local Tab = Window:TabEvents({
     Title = "Events",
     Icon = "gift", -- optional
     Locked = false,
 })
 
-local Tab = Window:Tab({
+local Tab = Window:TabMisc({
+    Title = "Misc",
+    Icon = "sliders-horizontal", -- optional
+    Locked = false,
+})
+
+local Tab = Window:TabSettings({
     Title = "Settings",
     Icon = "settings", -- optional
     Locked = false,
