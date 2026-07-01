@@ -1,4 +1,4 @@
-local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/ndrael/Ryzenth/refs/heads/main/Ryzenth.lua"))()
 
 WindUI:AddTheme({
     Name = "Ryzenth",
@@ -108,16 +108,12 @@ local MainTab = Window:Tab({
 })
 
 local PlayersService = game:GetService("Players")
-local StatsService = game:GetService("Stats")
 
 local function GetServerPlayerCount()
     return #PlayersService:GetPlayers()
 end
 
 local function GetGamePlayingCount()
-    local success, result = pcall(function()
-        return StatsService.PlacesLoaded or game.PlaceId and 0
-    end)
     local ok, data = pcall(function()
         return game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
     end)
@@ -129,10 +125,10 @@ end
 
 local BannerParagraph = MainTab:Paragraph({
     Title = "Ryzenth | Violence District",
-    Desc = "Made by ndrael\nPlaying now: " .. tostring(GetGamePlayingCount()) .. "\nPlayers in this server: " .. tostring(GetServerPlayerCount()),
-    Color = "Blue",
+    Desc = "Made by ndrael\n\nPlayers currently playing this game: " .. tostring(GetGamePlayingCount()) .. "\nPlayers in this server: " .. tostring(GetServerPlayerCount()),
+    Color = "Grey",
     Image = "rbxassetid://110263629662540",
-    ImageSize = 60,
+    ImageSize = 400,
     Thumbnail = "",
     ThumbnailSize = 80,
     Locked = false,
@@ -140,7 +136,7 @@ local BannerParagraph = MainTab:Paragraph({
 
 task.spawn(function()
     while task.wait(5) do
-        BannerParagraph:SetDesc("Made by ndrael\nPlaying now: " .. tostring(GetGamePlayingCount()) .. "\nPlayers in this server: " .. tostring(GetServerPlayerCount()))
+        BannerParagraph:SetDesc("Made by ndrael\n\nPlayers currently playing this game: " .. tostring(GetGamePlayingCount()) .. "\nPlayers in this server: " .. tostring(GetServerPlayerCount()))
     end
 end)
 
