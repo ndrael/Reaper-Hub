@@ -107,37 +107,6 @@ local MainTab = Window:Tab({
     Locked = false,
 })
 
-local PlayersService = game:GetService("Players")
-
-local function GetServerPlayerCount()
-    return #PlayersService:GetPlayers()
-end
-
-local function GetGamePlayingCount()
-    local ok, data = pcall(function()
-        return game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId, Enum.InfoType.Asset)
-    end)
-    if ok and data and data.PlayingCount then
-        return data.PlayingCount
-    end
-    return "N/A"
-end
-
-local BannerParagraph = MainTab:Paragraph({
-    Title = "Ryzenth | Violence District",
-    Desc = "Made by ndrael\n\nPlayers currently playing this game: " .. tostring(GetGamePlayingCount()) .. "\nPlayers in this server: " .. tostring(GetServerPlayerCount()),
-    Color = "Grey",
-    Thumbnail = "rbxassetid://110263629662540",
-    ThumbnailSize = 180,
-    Locked = false,
-})
-
-task.spawn(function()
-    while task.wait(5) do
-        BannerParagraph:SetDesc("Made by ndrael\n\nPlayers currently playing this game: " .. tostring(GetGamePlayingCount()) .. "\nPlayers in this server: " .. tostring(GetServerPlayerCount()))
-    end
-end)
-
 local EspTab = Window:Tab({
     Title = "Esp",
     Icon = "eye",
