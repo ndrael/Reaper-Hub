@@ -25,6 +25,7 @@ local Window = WindUI:CreateWindow({
     Title = "Reaper Hub",
     Icon = "rose", -- lucide icon. optional
     Author = "by ndrael", -- optional
+    Theme = "Dark Blood Gradient"
 })
 
 local Tab = Window:Tab({
@@ -56,5 +57,3 @@ local Tab = Window:Tab({
     Icon = "settings", -- optional
     Locked = false,
 })
-
-WindUI:SetTheme("Dark Blood Gradient")
