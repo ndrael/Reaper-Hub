@@ -56,3 +56,5 @@ local Tab = Window:Tab({
     Icon = "settings", -- optional
     Locked = false,
 })
+
+WindUI:SetTheme("Dark Blood Gradient")
